@@ -16,9 +16,9 @@ PORTFOLIO_DATA = {
     "title": "Software Engineer | AI & Full Stack Developer",
     "location": "Karnataka, India",
     "location_map": "https://www.google.com/maps/search/?api=1&query=Karnataka+India",
-    "email": "your.email@gmail.com",  # CHANGE THIS
-    "phone": "+91-1234567890",  # CHANGE THIS
-    "linkedin": "https://www.linkedin.com/in/your-profile",  # CHANGE THIS
+    "email": "revathisk1666@gmail.com",  # CHANGE THIS
+    "phone": "+91-8088004829",  # CHANGE THIS
+    "linkedin": "https://www.linkedin.com/in/revathi-s-k-32681428a",  # CHANGE THIS
     "summary": "A highly motivated and results-driven individual with a passion for innovation, problem-solving, and Artificial Intelligence.",
     "education": [
         {"degree": "Bachelor of Engineering (BE) - Computer Science and Engineering", "institution": "SJC Institute of Technology, Chickaballapur", "year": "2021-2025", "score": "CGPA: 8.92"}
