@@ -4,22 +4,22 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Check if resume and profile photo exist
-resume_path = 'resume.pdf'
-profile_path = 'profile.jpg'
+# Check if resume and profile photo exist (UPDATED FILENAMES)
+resume_path = 'RevathiSK_.pdf'
+profile_path = 'Rev.jpg'
 has_resume = os.path.exists(resume_path)
 has_profile = os.path.exists(profile_path)
 
-# Portfolio Data
+# Portfolio Data (UPDATED WITH YOUR INFO)
 PORTFOLIO_DATA = {
     "name": "REVATHI SURESH KHANAPUR",
     "title": "Software Engineer | AI & Full Stack Developer",
     "location": "Karnataka, India",
     "location_map": "https://www.google.com/maps/search/?api=1&query=Karnataka+India",
-    "email": "revathisk1666@gmail.com",  # CHANGE THIS
-    "phone": "+91-8088004829",  # CHANGE THIS
-    "linkedin": "https://www.linkedin.com/in/revathi-s-k-32681428a",  # CHANGE THIS
-    "summary": "A highly motivated and results-driven individual with a passion for innovation, problem-solving, and Artificial Intelligence.",
+    "email": "revathisk1666@gmail.com",
+    "phone": "+91-8088004829",
+    "linkedin": "https://www.linkedin.com/in/revathi-s-k-32681428a",
+    "summary": "A highly motivated and results-driven individual with a passion for innovation, problem-solving, and Artificial Intelligence. Committed to continuous learning and excellence in every endeavor, with a strong interest in developing intelligent, adaptive, and human-centered solutions. Dedicated to bridging the gap between technology and real-world impact through the creation of next-generation AI-driven systems that enhance efficiency, scalability, and user experience.",
     "education": [
         {"degree": "Bachelor of Engineering (BE) - Computer Science and Engineering", "institution": "SJC Institute of Technology, Chickaballapur", "year": "2021-2025", "score": "CGPA: 8.92"}
     ],
@@ -27,12 +27,12 @@ PORTFOLIO_DATA = {
     "soft_skills": ["Problem-Solving", "Communication", "Collaboration", "Innovation", "Adaptability", "Continuous Learning"],
     "languages": ["English", "Kannada", "Hindi"],
     "projects": [
-        {"name": "AI-Driven Web-Based Secure File Transfer System", "tech": "Python, Flask, AES/RSA Encryption, OpenAI API", "description": "Developed backend using Python/Flask for secure file processing with AES & RSA encryption."},
-        {"name": "Online Book Store System", "tech": "HTML, CSS, Java, MySQL, Spring Boot", "description": "Full-stack e-commerce application with user registration, login, book browsing, and order placement."},
-        {"name": "Fresh Mart - E-Commerce Grocery Application", "tech": "HTML, CSS, JavaScript, Netlify/Vercel", "description": "Web-based platform with real-time progress tracking, secure authentication."}
+        {"name": "AI-Driven Web-Based Secure File Transfer System", "tech": "Python, Flask, AES/RSA Encryption, OpenAI API", "description": "Developed backend using Python/Flask for secure file processing with AES & RSA encryption (PyAesCrypt, PKCS1_OAEP). Integrated AI chatbot using OpenAI API for real-time user support. Built secure file upload, sending/receiving with validation and encrypted storage."},
+        {"name": "Online Book Store System", "tech": "HTML, CSS, Java, MySQL, Spring Boot", "description": "Full-stack e-commerce application with user registration, login, book browsing, and order placement. Integrated secure payment gateway. Created admin panel for product, customer, and order management."},
+        {"name": "Fresh Mart - E-Commerce Grocery Application", "tech": "HTML, CSS, JavaScript, Netlify/Vercel", "description": "Web-based platform with real-time progress tracking, secure authentication, student profile management, and automated notifications. Deployed on static hosting platform (Netlify/Vercel) for accessibility."}
     ],
     "experience": [
-        {"role": "Full Stack Development Intern", "company": "Inflow Technologies", "location": "", "duration": "", "description": "Gained hands-on experience in Java programming through real-world projects."}
+        {"role": "Full Stack Development Intern", "company": "Inflow Technologies", "location": "", "duration": "", "description": "Gained hands-on experience in Java programming through real-world projects. Worked on frontend and backend development using ReactJS, Java, Spring Boot, and Microservices, contributing to scalable applications with features like user authentication, cart management, and order placement. Earned an IBM certification, enhancing understanding of full-stack development and modern software engineering practices."}
     ],
     "achievements": [
         "🏆 Java Certification - Infosys Springboard",
@@ -54,7 +54,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revathi Khanapur | Portfolio</title>
+    <title>Revathi Khanapur | AI & Full Stack Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -63,10 +63,12 @@ HTML_TEMPLATE = """
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background: #f5f5f5;
         }
+        
         .navbar {
             position: fixed;
             top: 0;
@@ -76,6 +78,7 @@ HTML_TEMPLATE = """
             z-index: 1000;
             padding: 15px 0;
         }
+        
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -84,6 +87,7 @@ HTML_TEMPLATE = """
             align-items: center;
             padding: 0 20px;
         }
+        
         .logo {
             font-size: 24px;
             font-weight: 700;
@@ -91,27 +95,32 @@ HTML_TEMPLATE = """
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
         .nav-links {
             display: flex;
             gap: 25px;
             list-style: none;
             flex-wrap: wrap;
         }
+        
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
         }
+        
         .nav-links a:hover {
             color: #667eea;
         }
+        
         .resume-btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white !important;
             padding: 8px 20px;
             border-radius: 25px;
         }
+        
         .hero {
             min-height: 100vh;
             display: flex;
@@ -119,6 +128,7 @@ HTML_TEMPLATE = """
             background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
             padding-top: 80px;
         }
+        
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -128,30 +138,36 @@ HTML_TEMPLATE = """
             gap: 50px;
             align-items: center;
         }
+        
         .hero-content h1 {
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 10px;
         }
+        
         .gradient-text {
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
         .hero-title {
             font-size: 24px;
             color: #666;
             margin-bottom: 20px;
         }
+        
         .hero-description {
             color: #666;
             margin-bottom: 30px;
             line-height: 1.6;
         }
+        
         .btn-group {
             display: flex;
             gap: 15px;
         }
+        
         .btn-primary {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -162,9 +178,11 @@ HTML_TEMPLATE = """
             font-weight: 500;
             transition: transform 0.3s;
         }
+        
         .btn-primary:hover {
             transform: translateY(-2px);
         }
+        
         .btn-outline {
             background: transparent;
             border: 2px solid #667eea;
@@ -175,13 +193,16 @@ HTML_TEMPLATE = """
             font-weight: 500;
             transition: all 0.3s;
         }
+        
         .btn-outline:hover {
             background: #667eea;
             color: white;
         }
+        
         .hero-image {
             text-align: center;
         }
+        
         .avatar-large {
             width: 250px;
             height: 250px;
@@ -194,6 +215,7 @@ HTML_TEMPLATE = """
             animation: float 3s ease-in-out infinite;
             overflow: hidden;
         }
+        
         .avatar-large img {
             width: 100%;
             height: 100%;
@@ -201,58 +223,70 @@ HTML_TEMPLATE = """
             border-radius: 50%;
             transition: transform 0.3s;
         }
+        
         .avatar-large img:hover {
             transform: scale(1.05);
         }
+        
         .avatar-large .emoji-avatar {
             font-size: 120px;
             text-align: center;
             line-height: 250px;
         }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
+        
         .section {
             padding: 80px 0;
         }
+        
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        
         .section-title {
             font-size: 36px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 50px;
         }
+        
         .section-title span {
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
+        
         .skill-category {
             background: white;
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
+        
         .skill-category h3 {
             margin-bottom: 20px;
             color: #667eea;
         }
+        
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 10px;
         }
+        
         .skill-tag {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -263,15 +297,18 @@ HTML_TEMPLATE = """
             transition: all 0.3s;
             cursor: default;
         }
+        
         .skill-tag:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 5px 15px rgba(102,126,234,0.4);
         }
+        
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
+        
         .project-card {
             background: white;
             border-radius: 15px;
@@ -279,30 +316,37 @@ HTML_TEMPLATE = """
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
         }
+        
         .project-card:hover {
             transform: translateY(-5px);
         }
+        
         .project-header {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             padding: 20px;
         }
+        
         .project-header h3 {
             margin-top: 10px;
             font-size: 18px;
         }
+        
         .project-body {
             padding: 20px;
         }
+        
         .project-tech {
             color: #667eea;
             font-weight: 500;
             margin-bottom: 10px;
         }
+        
         .project-description {
             color: #666;
             line-height: 1.6;
         }
+        
         .timeline-item {
             background: white;
             border-radius: 15px;
@@ -310,26 +354,31 @@ HTML_TEMPLATE = """
             margin-bottom: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
+        
         .timeline-title {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 5px;
             color: #667eea;
         }
+        
         .timeline-subtitle {
             color: #666;
             margin-bottom: 5px;
         }
+        
         .timeline-date {
             color: #999;
             font-size: 14px;
             margin-bottom: 10px;
         }
+        
         .achievements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+        
         .achievement-card {
             background: white;
             border-radius: 15px;
@@ -337,19 +386,23 @@ HTML_TEMPLATE = """
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
         }
+        
         .achievement-card:hover {
             transform: translateY(-5px);
         }
+        
         .achievement-icon {
             font-size: 40px;
             margin-bottom: 10px;
         }
+        
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             text-align: center;
         }
+        
         .contact-card {
             background: white;
             border-radius: 15px;
@@ -358,18 +411,22 @@ HTML_TEMPLATE = """
             transition: transform 0.3s;
             cursor: pointer;
         }
+        
         .contact-card:hover {
             transform: translateY(-5px);
         }
+        
         .contact-icon {
             font-size: 48px;
             color: #667eea;
             margin-bottom: 15px;
         }
+        
         .contact-card a {
             color: #667eea;
             text-decoration: none;
         }
+        
         .modal {
             display: none;
             position: fixed;
@@ -382,9 +439,11 @@ HTML_TEMPLATE = """
             justify-content: center;
             align-items: center;
         }
+        
         .modal.active {
             display: flex;
         }
+        
         .modal-content {
             background: white;
             border-radius: 15px;
@@ -393,6 +452,7 @@ HTML_TEMPLATE = """
             max-height: 90vh;
             overflow: hidden;
         }
+        
         .modal-header {
             padding: 20px;
             border-bottom: 1px solid #eee;
@@ -400,26 +460,31 @@ HTML_TEMPLATE = """
             justify-content: space-between;
             align-items: center;
         }
+        
         .modal-body {
             padding: 20px;
             overflow-y: auto;
             max-height: calc(90vh - 80px);
         }
+        
         .close-modal {
             background: none;
             border: none;
             font-size: 24px;
             cursor: pointer;
         }
+        
         .footer {
             background: #1a1a2e;
             color: white;
             padding: 30px 0;
             text-align: center;
         }
+        
         body.dark-mode {
             background: #1a1a2e;
         }
+        
         body.dark-mode .navbar,
         body.dark-mode .skill-category,
         body.dark-mode .project-card,
@@ -429,14 +494,17 @@ HTML_TEMPLATE = """
             background: #2a2a3e;
             color: #eee;
         }
+        
         body.dark-mode .nav-links a {
             color: #eee;
         }
+        
         body.dark-mode .hero-description,
         body.dark-mode .project-description,
         body.dark-mode .timeline-subtitle {
             color: #ccc;
         }
+        
         .dark-toggle {
             position: fixed;
             bottom: 30px;
@@ -453,6 +521,7 @@ HTML_TEMPLATE = """
             z-index: 999;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        
         .toast {
             position: fixed;
             bottom: 100px;
@@ -463,24 +532,71 @@ HTML_TEMPLATE = """
             border-radius: 8px;
             display: none;
             z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            font-size: 14px;
         }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
+            
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            
             .btn-group {
                 justify-content: center;
             }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .avatar-large {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .avatar-large .emoji-avatar {
+                font-size: 80px;
+                line-height: 180px;
+            }
+            
+            .toast {
+                bottom: 80px;
+                right: 20px;
+                left: 20px;
+                text-align: center;
+            }
         }
+        
         iframe {
             width: 100%;
             height: 500px;
             border: none;
         }
+        
+        .clickable {
+            cursor: pointer;
+        }
+        
         .small-hint {
             font-size: 12px;
             color: #667eea;
@@ -494,12 +610,12 @@ HTML_TEMPLATE = """
         <div class="nav-container">
             <div class="logo">Revathi Khanapur</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#achievements">Certifications</a></li>
+                <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#skills"><i class="fa fa-code"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fa fa-briefcase"></i> Projects</a></li>
+                <li><a href="#education"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#experience"><i class="fa fa-user"></i> Experience</a></li>
+                <li><a href="#achievements"><i class="fa fa-trophy"></i> Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#" class="resume-btn" onclick="openResumeModal()">📄 Resume</a></li>
             </ul>
@@ -520,7 +636,7 @@ HTML_TEMPLATE = """
             <div class="hero-image">
                 <div class="avatar-large">
                     {% if has_profile %}
-                    <img src="/profile-photo" alt="Profile Photo">
+                    <img src="/profile-photo" alt="Revathi Khanapur">
                     {% else %}
                     <div class="emoji-avatar">👩‍💻</div>
                     {% endif %}
@@ -553,6 +669,7 @@ HTML_TEMPLATE = """
                         <span class="skill-tag">HTML5/CSS3</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Microservices</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -623,6 +740,7 @@ HTML_TEMPLATE = """
                 </div>
                 {% endfor %}
             </div>
+            
             <h2 class="section-title" style="margin-top: 50px;">Activities & <span>Interests</span></h2>
             {% for activity in data.activities %}
             <div class="timeline-item">
@@ -640,7 +758,7 @@ HTML_TEMPLATE = """
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <h4>Email</h4>
                     <p>{{ data.email }}</p>
-                    <span class="small-hint">📋 Click to copy</span>
+                    <span class="small-hint">📋 Click to copy email</span>
                 </div>
                 <div class="contact-card" onclick="makePhoneCall()">
                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
@@ -652,13 +770,13 @@ HTML_TEMPLATE = """
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <h4>Location</h4>
                     <p>{{ data.location }}</p>
-                    <span class="small-hint">🗺️ View map</span>
+                    <span class="small-hint">🗺️ Click to view map</span>
                 </div>
                 <div class="contact-card" onclick="openLinkedIn()">
                     <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                     <h4>LinkedIn</h4>
                     <p>Connect with me</p>
-                    <span class="small-hint">🔗 Open profile</span>
+                    <span class="small-hint">🔗 Click to open</span>
                 </div>
             </div>
         </div>
@@ -683,6 +801,7 @@ HTML_TEMPLATE = """
                 <div style="text-align: center; padding: 50px;">
                     <i class="fas fa-file-pdf" style="font-size: 64px; color: #667eea;"></i>
                     <p style="margin-top: 20px;">Resume PDF not found.</p>
+                    <p style="margin-top: 10px; font-size: 14px;">Place your RevathiSK_.pdf file in the backend folder.</p>
                 </div>
                 {% endif %}
             </div>
@@ -698,53 +817,116 @@ HTML_TEMPLATE = """
     </div>
     
     <script>
+        // Resume functions
         function openResumeModal() { 
             document.getElementById('resumeModal').classList.add('active'); 
         }
+        
         function closeResumeModal() { 
             document.getElementById('resumeModal').classList.remove('active'); 
         }
+        
         function downloadResume() { 
             window.location.href = '/download-resume'; 
         }
+        
+        // Email - Copy to clipboard
         function copyEmail() {
             const email = "{{ data.email }}";
-            navigator.clipboard.writeText(email);
-            showToast("✅ Email copied: " + email);
+            navigator.clipboard.writeText(email).then(function() {
+                showToast("✅ Email copied: " + email);
+            }).catch(function() {
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast("✅ Email copied: " + email);
+            });
         }
+        
+        // Phone - Make call
         function makePhoneCall() {
             const phone = "{{ data.phone }}";
             window.location.href = "tel:" + phone;
+            showToast("📞 Opening phone dialer...");
         }
+        
+        // Location - Open Google Maps
         function openLocation() {
-            window.open("{{ data.location_map }}", '_blank');
+            const locationMap = "{{ data.location_map }}";
+            window.open(locationMap, '_blank');
+            showToast("🗺️ Opening Google Maps...");
         }
+        
+        // LinkedIn - Open profile
         function openLinkedIn() {
-            window.open("{{ data.linkedin }}", '_blank');
+            const linkedin = "{{ data.linkedin }}";
+            window.open(linkedin, '_blank');
+            showToast("🔗 Opening LinkedIn profile...");
         }
+        
+        // Toast notification
         function showToast(message) {
             const toast = document.getElementById('toast');
-            document.getElementById('toastMessage').innerText = message;
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.innerText = message;
             toast.style.display = 'block';
-            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
         }
+        
+        // Dark mode toggle
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
             const icon = document.querySelector('.dark-toggle i');
             if(document.body.classList.contains('dark-mode')) {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
             } else {
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
             }
         }
+        
+        // Load dark mode preference
+        if(localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            const icon = document.querySelector('.dark-toggle i');
+            if(icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+        
+        // Close modal with Escape key
         document.addEventListener('keydown', function(e) { 
             if(e.key === 'Escape') closeResumeModal(); 
         });
+        
+        // Close modal when clicking outside
         window.onclick = function(event) { 
             if(event.target === document.getElementById('resumeModal')) closeResumeModal(); 
         }
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Console greeting
+        console.log("%c🚀 Welcome to Revathi's AI & Full Stack Portfolio!", "color: #667eea; font-size: 16px; font-weight: bold;");
+        console.log("%c✨ Click on email to copy, location to see map!", "color: #764ba2; font-size: 14px;");
     </script>
 </body>
 </html>
