@@ -10,7 +10,7 @@ profile_path = 'Rev.jpg'
 has_resume = os.path.exists(resume_path)
 has_profile = os.path.exists(profile_path)
 
-# Portfolio Data (UPDATED WITH YOUR INFO)
+# Portfolio Data (UPDATED WITH YOUR INFO AND KODNEST EXPERIENCE)
 PORTFOLIO_DATA = {
     "name": "REVATHI SURESH KHANAPUR",
     "title": "Software Engineer | AI & Full Stack Developer",
@@ -29,17 +29,19 @@ PORTFOLIO_DATA = {
     "projects": [
         {"name": "AI-Driven Web-Based Secure File Transfer System", "tech": "Python, Flask, AES/RSA Encryption, OpenAI API", "description": "Developed backend using Python/Flask for secure file processing with AES & RSA encryption (PyAesCrypt, PKCS1_OAEP). Integrated AI chatbot using OpenAI API for real-time user support. Built secure file upload, sending/receiving with validation and encrypted storage."},
         {"name": "Online Book Store System", "tech": "HTML, CSS, Java, MySQL, Spring Boot", "description": "Full-stack e-commerce application with user registration, login, book browsing, and order placement. Integrated secure payment gateway. Created admin panel for product, customer, and order management."},
-        {"name": "Fresh Mart - E-Commerce Grocery Application", "tech": "HTML, CSS, JavaScript, Netlify/Vercel", "description": "Web-based platform with real-time progress tracking, secure authentication, student profile management, and automated notifications. Deployed on static hosting platform (Netlify/Vercel) for accessibility."}
+        {"name": "Fresh Mart - E-Commerce Grocery Application", "tech": "HTML, CSS, JavaScript, React.js, SQL", "description": "Web-based platform with real-time progress tracking, secure authentication, student profile management, and automated notifications. Deployed on static hosting platform for accessibility. Built during Kodnest internship as a mini-project."}
     ],
     "experience": [
-        {"role": "Full Stack Development Intern", "company": "Inflow Technologies", "location": "", "duration": "", "description": "Gained hands-on experience in Java programming through real-world projects. Worked on frontend and backend development using ReactJS, Java, Spring Boot, and Microservices, contributing to scalable applications with features like user authentication, cart management, and order placement. Earned an IBM certification, enhancing understanding of full-stack development and modern software engineering practices."}
+        {"role": "Full Stack Development Intern", "company": "Inflow Technologies", "location": "", "duration": "", "description": "Gained hands-on experience in Java programming through real-world projects. Worked on frontend and backend development using ReactJS, Java, Spring Boot, and Microservices, contributing to scalable applications with features like user authentication, cart management, and order placement. Earned an IBM certification, enhancing understanding of full-stack development and modern software engineering practices."},
+        {"role": "Full Stack Intern", "company": "Kodnest Private Ltd", "location": "", "duration": "6 months", "description": "Completed intensive full-stack development training program. Learned Java, frontend technologies (HTML, CSS, JavaScript), React.js, and SQL database management. Solved numerous coding problems and algorithmic challenges. Successfully completed multiple mini-projects including portfolio website and FreshMart e-commerce grocery application. Earned certification for successful completion of the 6-month internship program. Developed strong problem-solving skills and gained practical experience in building real-world applications."}
     ],
     "achievements": [
         "🏆 Java Certification - Infosys Springboard",
         "📜 Deep Dive into Python Libraries - INDOSKILL for INDIA",
         "🔧 Internship Certificate - Inflow Technologies",
         "☁️ AWS Trained - Vinsys IT Services",
-        "🎓 IBM Certification - Full Stack Development"
+        "🎓 IBM Certification - Full Stack Development",
+        "📜 Kodnest Full Stack Internship Certificate"
     ],
     "activities": [
         "💡 Passionate about AI-driven systems and human-centered solutions",
@@ -722,7 +724,7 @@ HTML_TEMPLATE = """
             {% for exp in data.experience %}
             <div class="timeline-item">
                 <h3 class="timeline-title">{{ exp.role }}</h3>
-                <div class="timeline-subtitle">{{ exp.company }}</div>
+                <div class="timeline-subtitle">{{ exp.company }} {% if exp.duration %} ({{ exp.duration }}){% endif %}</div>
                 <p>{{ exp.description }}</p>
             </div>
             {% endfor %}
